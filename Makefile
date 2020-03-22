@@ -12,7 +12,7 @@ LDFLAGS :=
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
-	LDFLAGS += -ldl
+	LDFLAGS += -Wl,--no-as-needed -ldl
 	CCFLAGS += -I/usr/local/include/avisynth
 else ifeq (${OS},Windows_NT)
 	CCFLAGS += -I"${AVISYNTH_SDK_PATH}\include"
